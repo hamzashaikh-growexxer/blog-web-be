@@ -62,12 +62,18 @@ app/
 │   ├── Requests/
 │   │   └── BlogRequest.php
 ├── Models/
-│   └── Blog.php
+│   ├── Blog.php
+│   └── BlogImage.php
 ├── Repositories/
 │   ├── BlogRepositoryInterface.php
-│   └── BlogRepository.php
+│   ├── BlogImageRepositoryInterface.php
+│   └── Eloquent/
+│       ├── BlogRepository.php
+│       └── BlogImageRepository.php
+
 routes/
 └── api.php
+
 ```
 
 ---
