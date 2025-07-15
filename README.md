@@ -97,13 +97,15 @@ composer install
 
 ### Environment configuration
 
-````bash
+```bash
 cp .env.example .env
+```
 
 ### Run migrations
+
 ```bash
 php artisan migrate
-````
+```
 
 ### Start the development server
 
