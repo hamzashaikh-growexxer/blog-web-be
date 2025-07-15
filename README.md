@@ -53,20 +53,22 @@ A RESTful **Laravel 8.83.29** backend for a blog system, following clean archite
 
 ## 📁 Project Structure Highlights
 
+```bash
 app/
 ├── Http/
-│ ├── Controllers/
-│ │ └── Api/
-│ │ └── BlogController.php
-│ ├── Requests/
-│ │ └── BlogRequest.php
+│   ├── Controllers/
+│   │   └── Api/
+│   │       └── BlogController.php
+│   ├── Requests/
+│   │   └── BlogRequest.php
 ├── Models/
-│ └── Blog.php
+│   └── Blog.php
 ├── Repositories/
-│ ├── BlogRepositoryInterface.php
-│ └── BlogRepository.php
+│   ├── BlogRepositoryInterface.php
+│   └── BlogRepository.php
 routes/
 └── api.php
+```
 
 ---
 
@@ -89,20 +91,28 @@ cd blog-web-be
 
 ### Install dependencies
 
+```bash
 composer install
+```
 
 ### Environment configuration
 
+````bash
 cp .env.example .env
 
 ### Run migrations
-
+```bash
 php artisan migrate
+````
 
 ### Start the development server
 
+```bash
 php artisan serve
+```
 
 ### Laravel app will run at:
 
+```bash
 http://localhost:8000
+```
