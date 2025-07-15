@@ -124,10 +124,7 @@ class BlogController extends Controller
         try {
             $this->blogImageRepo->deleteImageById($id);
 
-            return response()->json([
-                'status' => true,
-                'message' => 'Image deleted successfully.'
-            ]);
+            return response()->noContent();
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,

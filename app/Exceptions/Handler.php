@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof ModelNotFoundException) {
             return response()->json([
                 'status' => false,
-                'message' => 'The requested blog was not found.',
+                'message' => 'The requested entity was not found.',
             ], 404);
         }
 
