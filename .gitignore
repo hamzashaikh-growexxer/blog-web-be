@@ -13,3 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+sonar-project.properties
+.scannerwork/class-mapping.csv
+.scannerwork/scanner-report/
+.scannerwork/
