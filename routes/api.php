@@ -18,4 +18,4 @@ use App\Http\Controllers\Api\BlogController;
 
 Route::apiResource('blogs', BlogController::class);
 
-Route::delete('/blog-images/{id}', [BlogController::class, 'destroyImage']);
+Route::delete('/blog-images/{blogImage}', [BlogController::class, 'destroyImage']);

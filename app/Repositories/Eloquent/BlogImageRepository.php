@@ -20,24 +20,15 @@ class BlogImageRepository implements BlogImageRepositoryInterface
         }
     }
 
-    public function deleteImageById(int $id)
+    public function deleteImageById(BlogImage $blogImage)
     {
-        $image = BlogImage::findOrFail($id);
-        $imagePath = public_path('storage/' . $image->image_path);
+
+        $imagePath = public_path('storage/' . $blogImage->image_path);
 
         if (File::exists($imagePath)) {
             File::delete($imagePath);
         }
 
-        return $image->delete();
-    }
-
-    public function deleteImagesByBlogId(int $blogId)
-    {
-        $images = BlogImage::where('blog_id', $blogId)->get();
-        foreach ($images as $image) {
-            Storage::disk('public')->delete($image->image_path);
-            $image->delete();
-        }
+        return $blogImage->delete();
     }
 }

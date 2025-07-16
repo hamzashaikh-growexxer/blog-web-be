@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Http\Requests\BlogRequest;
+use App\Models\BlogImage;
 use App\Repositories\BlogRepositoryInterface;
 use App\Repositories\BlogImageRepositoryInterface;
 
@@ -43,7 +44,7 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
         try {
-            $blog = $this->blogRepo->create($request->only(['title', 'content']));
+            $blog = $this->blogRepo->create($request->validated());
 
             if ($request->hasFile('images')) {
                 $this->blogImageRepo->storeImages($request->file('images'), $blog->id);
@@ -83,7 +84,7 @@ class BlogController extends Controller
     public function update(BlogRequest $request, Blog $blog)
     {
         try {
-            $this->blogRepo->update($blog, $request->only(['title', 'content']));
+            $this->blogRepo->update($blog, $request->validated());
 
             if ($request->hasFile('images')) {
                 $this->blogImageRepo->storeImages($request->file('images'), $blog->id);
@@ -106,7 +107,6 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         try {
-            $this->blogImageRepo->deleteImagesByBlogId($blog->id);
             $this->blogRepo->delete($blog);
 
             return response()->noContent();
@@ -119,10 +119,10 @@ class BlogController extends Controller
         }
     }
 
-    public function destroyImage($id)
+    public function destroyImage(BlogImage $blogImage)
     {
         try {
-            $this->blogImageRepo->deleteImageById($id);
+            $this->blogImageRepo->deleteImageById($blogImage);
 
             return response()->noContent();
         } catch (\Exception $e) {
