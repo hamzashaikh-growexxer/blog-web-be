@@ -121,7 +121,6 @@ class BlogController extends Controller
             ], 500);
         }
     }
-    #test revert on git 
 
     public function destroyImage(BlogImage $blogImage)
     {
