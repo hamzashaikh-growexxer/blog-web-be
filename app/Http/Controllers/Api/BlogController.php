@@ -107,6 +107,9 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         try {
+            foreach ($blog->images as $image) {
+                $this->blogImageRepo->deleteImageById($image);
+            }
             $this->blogRepo->delete($blog);
 
             return response()->noContent();
