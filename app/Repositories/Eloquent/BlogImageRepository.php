@@ -5,7 +5,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\BlogImage;
 use App\Repositories\BlogImageRepositoryInterface;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class BlogImageRepository implements BlogImageRepositoryInterface
 {

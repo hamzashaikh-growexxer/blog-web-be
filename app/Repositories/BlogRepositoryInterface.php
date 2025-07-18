@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Blog;
-use Illuminate\Http\Request;
 
 interface BlogRepositoryInterface
 {

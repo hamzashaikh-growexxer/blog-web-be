@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\BlogImage;
-use Illuminate\Http\UploadedFile;
 
 interface BlogImageRepositoryInterface
 {
