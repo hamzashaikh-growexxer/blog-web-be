@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @OA\Schema(
  *     schema="BlogImage",
  *     title="BlogImage",
+ *     type="object",
  *     required={"id", "blog_id", "image_path"},
  *     @OA\Property(property="id", type="integer", example=10),
  *     @OA\Property(property="blog_id", type="integer", example=1),

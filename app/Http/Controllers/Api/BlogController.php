@@ -34,6 +34,7 @@ class BlogController extends Controller
      * @OA\Get(
      *     path="/api/blogs",
      *     summary="Get all blogs",
+     *     operationId="getBlog",
      *     tags={"Blogs"},
      *     @OA\Response(
      *         response=200,
@@ -67,6 +68,7 @@ class BlogController extends Controller
      * @OA\Post(
      *     path="/api/blogs",
      *     summary="Create a new blog",
+     *     operationId="storeBlog",
      *     tags={"Blogs"},
      *     @OA\RequestBody(
      *         required=true,
@@ -117,6 +119,7 @@ class BlogController extends Controller
      * @OA\Get(
      *     path="/api/blogs/{id}",
      *     summary="Get a single blog",
+     *     operationId="showBlog",
      *     tags={"Blogs"},
      *     @OA\Parameter(
      *         name="id",
@@ -149,6 +152,7 @@ class BlogController extends Controller
      * @OA\POST(
      *     path="/api/blogs/{id}",
      *     summary="Update an existing blog",
+     *     operationId="updateBlog",
      *     tags={"Blogs"},
      *     @OA\Parameter(
      *         name="id",
@@ -210,6 +214,7 @@ class BlogController extends Controller
      * @OA\Delete(
      *     path="/api/blogs/{id}",
      *     summary="Delete a blog",
+     *     operationId="destroyBlog",
      *     tags={"Blogs"},
      *     @OA\Parameter(
      *         name="id",
@@ -241,6 +246,7 @@ class BlogController extends Controller
      * @OA\Delete(
      *     path="/api/blog-images/{id}",
      *     summary="Delete a blog image",
+     *     operationId="destroyBlogImage",
      *     tags={"BlogImages"},
      *     @OA\Parameter(
      *         name="id",
