@@ -63,21 +63,24 @@ class BlogController extends Controller
         ]);
     }
 
-    /**
+   /**
      * @OA\Post(
      *     path="/api/blogs",
      *     summary="Create a new blog",
      *     tags={"Blogs"},
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
-     *             required={"title", "content"},
-     *             @OA\Property(property="title", type="string", example="My Blog Title"),
-     *             @OA\Property(property="content", type="string", example="This is a blog post."),
-     *             @OA\Property(
-     *                 property="images",
-     *                 type="array",
-     *                 @OA\Items(type="string", format="binary")
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"title", "content"},
+     *                 @OA\Property(property="title", type="string", example="My Blog Title"),
+     *                 @OA\Property(property="content", type="string", example="This is a blog post."),
+     *                 @OA\Property(
+     *                     property="images[]",
+     *                     type="array",
+     *                     @OA\Items(type="string", format="binary")
+     *                 )
      *             )
      *         )
      *     ),
@@ -92,6 +95,7 @@ class BlogController extends Controller
      *     )
      * )
      */
+
 
     public function store(BlogRequest $request)
     {
@@ -142,7 +146,7 @@ class BlogController extends Controller
         ]);
     }
     /**
-     * @OA\Put(
+     * @OA\POST(
      *     path="/api/blogs/{id}",
      *     summary="Update an existing blog",
      *     tags={"Blogs"},
@@ -155,14 +159,23 @@ class BlogController extends Controller
      *     ),
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
-     *             required={"title", "content"},
-     *             @OA\Property(property="title", type="string", example="Updated Blog Title"),
-     *             @OA\Property(property="content", type="string", example="Updated content."),
-     *             @OA\Property(
-     *                 property="images",
-     *                 type="array",
-     *                 @OA\Items(type="string", format="binary")
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"title", "content"},
+     *                 @OA\Property(property="title", type="string", example="Updated Blog Title"),
+     *                 @OA\Property(property="content", type="string", example="Updated blog content."),
+     *                 @OA\Property(
+     *                     property="images[]",
+     *                     type="array",
+     *                     @OA\Items(type="string", format="binary")
+     *                 ),
+     *                     @OA\Property(
+     *                     property="_method",
+     *                     type="string",
+     *                     description="HTTP method override for method spoofing (use 'PUT' when sending POST)",
+     *                     example="PUT"
+     *                 )
      *             )
      *         )
      *     ),
@@ -177,7 +190,6 @@ class BlogController extends Controller
      *     )
      * )
      */
-
 
     public function update(BlogRequest $request, Blog $blog)
     {
