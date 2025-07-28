@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @OA\Schema(
  *     schema="Blog",
  *     title="Blog",
+ *     type="object",
  *     required={"id", "title", "content"},
  *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="title", type="string", example="My First Blog"),
