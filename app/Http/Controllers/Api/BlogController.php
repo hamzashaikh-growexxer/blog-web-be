@@ -94,6 +94,22 @@ class BlogController extends Controller
      *             @OA\Property(property="message", type="string", example="Blog created successfully."),
      *             @OA\Property(property="data", ref="#/components/schemas/Blog")
      *         )
+     *     ),
+     *      @OA\Response(
+     *         response=422,
+     *         description="Validation error",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="The given data was invalid."),
+     *             @OA\Property(
+     *                 property="errors",
+     *                 type="object",
+     *                 example={
+     *                     "title": {"The title field is required."},
+     *                     "images.0": {"The images.0 must be an image."}
+     *                 }
+     *             )
+     *         )
      *     )
      * )
      */
@@ -190,6 +206,22 @@ class BlogController extends Controller
      *             @OA\Property(property="status", type="boolean", example=true),
      *             @OA\Property(property="message", type="string", example="Blog updated successfully."),
      *             @OA\Property(property="data", ref="#/components/schemas/Blog")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="The given data was invalid."),
+     *             @OA\Property(
+     *                 property="errors",
+     *                 type="object",
+     *                 example={
+     *                     "title": {"The title field is required."},
+     *                     "images.0": {"The images.0 must be an image."}
+     *                 }
+     *             )
      *         )
      *     )
      * )
